@@ -1,0 +1,18 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+.env
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data raw files (too large for GitHub)
+data/sp500_raw/
+data/sectors_raw/
+data/macro_daily_raw/
+data/macro_monthly_raw/
+
+# Environment
+*.log
