@@ -43,30 +43,29 @@ look-ahead bias.
 ---
 
 ## System Architecture
+```
 Raw Data (S&P 500 + 11 Sector ETFs + 16 Macro Indicators)
-↓
-Data Collection and Preprocessing
-yfinance + FRED API + XLC reconstruction
-Business day alignment + release-aware forward fill
-↓
-Feature Engineering (46 features)
-Technical indicators + Macro features
-Calendar features + Event flags (FOMC CPI holidays)
-↓
-SHAP Feature Selection (46 → 7 optimal features)
-Correlation filter + SHAP importance threshold
-↓
-┌─────────────────────────────┐    ┌─────────────────────────────────┐
-│  Layer 1 — Price Forecast   │    │  Layer 2 — Sector Rotation      │
-│                             │    │                                  │
-│  18 Models across 6 families│    │  K-Means Regime Detection        │
-│  Optuna Hyperparameter Tune │───▶│  5 Market Regimes (silhouette)  │
-│  Stacking Ensemble          │    │  5-Factor Composite Scoring      │
-│  MAPE 0.65%                 │    │  Ridge Regression Weights        │
-└─────────────────────────────┘    └─────────────────────────────────┘
-↓
-339 Weekly Recommendations (2018-2024)
-No look-ahead bias — simulates real deployment
+                    ↓
+        Data Collection and Preprocessing
+        yfinance + FRED API + XLC reconstruction
+        Business day alignment + release-aware forward fill
+                    ↓
+        Feature Engineering (46 features)
+        Technical indicators + Macro features
+        Calendar features + Event flags (FOMC CPI holidays)
+                    ↓
+        SHAP Feature Selection (46 → 7 optimal features)
+        Correlation filter + SHAP importance threshold
+                    ↓
+Layer 1 — Price Forecast        Layer 2 — Sector Rotation
+18 Models across 6 families     K-Means Regime Detection
+Optuna Hyperparameter Tune  ──▶ 5 Market Regimes
+Stacking Ensemble               5-Factor Composite Scoring
+MAPE 0.65%                      Ridge Regression Weights
+                    ↓
+        339 Weekly Recommendations (2018-2024)
+        No look-ahead bias — simulates real deployment
+```
 
 ---
 
@@ -211,16 +210,17 @@ docker run -p 8501:8501 \
 ---
 
 ## Project Structure
+```
 sp500-market-intelligence-system/
 ├── notebook/
-│   ├── darts.example.ipynb     # Full analysis notebook (13 phases)
+│   ├── darts.example.ipynb     # Full analysis notebook
 │   └── darts.example.py        # Python version
 ├── dashboard/
 │   ├── app.py                  # Streamlit dashboard
 │   ├── data_loader.py          # Data loading functions
 │   └── charts.py               # Plotly chart functions
 ├── data/
-│   └── dashboard/              # Pre-computed results (CSVs)
+│   └── dashboard/              # Pre-computed results
 │       ├── weekly_recommendations.csv
 │       ├── walk_forward_results.csv
 │       ├── attribution_df.csv
@@ -233,6 +233,7 @@ sp500-market-intelligence-system/
 ├── utils.py                    # 45 helper functions
 ├── requirements.txt            # Pinned dependencies
 └── Dockerfile                  # Docker configuration
+```
 
 ---
 
