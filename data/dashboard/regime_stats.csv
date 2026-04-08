@@ -1,0 +1,6 @@
+Regime,Name,Count,Pct_Days,Avg_Return,Avg_VIX,Avg_FedRate,Avg_YieldCurve
+0,Bear Market,40,2.3,-0.1107,50.24,0.29,0.6336
+1,High Volatility,203,11.6,-0.0759,26.6,1.41,1.1703
+2,Moderate Growth,746,42.6,0.0421,16.92,1.44,0.7716
+3,Recovery,536,30.6,0.0886,16.61,5.02,-0.8888
+4,Bull Market,225,12.9,0.1295,26.39,0.09,0.7773
