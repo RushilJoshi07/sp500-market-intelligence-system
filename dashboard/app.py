@@ -21,6 +21,16 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
+# Hide Streamlit default toolbar icons.
+st.markdown("""
+    <style>
+    #MainMenu {visibility: hidden;}
+    header {visibility: hidden;}
+    footer {visibility: hidden;}
+    [data-testid="stToolbar"] {visibility: hidden;}
+    </style>
+""", unsafe_allow_html=True)
+
 # Custom CSS for better styling.
 st.markdown("""
     <style>
