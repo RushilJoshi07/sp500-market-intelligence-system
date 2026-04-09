@@ -10,7 +10,9 @@
 [![XGBoost](https://img.shields.io/badge/ML-XGBoost-orange?style=for-the-badge)](https://xgboost.readthedocs.io)
 
 ---
+[![Live Dashboard](https://img.shields.io/badge/Live%20Dashboard-Streamlit-ff4b4b?style=for-the-badge&logo=streamlit)](https://sp500-market-intelligence-system.streamlit.app)
 
+---
 ## What is the S&P 500 Market Intelligence System
 
 This is a two-layer quantitative market intelligence system that forecasts
